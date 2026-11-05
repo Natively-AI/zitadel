@@ -92,9 +92,9 @@ const buttonBase =
 
 const buttonVariants = {
   primary:
-    "h-9 w-full @5xl:h-10 bg-brand px-4 text-white hover:bg-brand-hover active:bg-brand-active disabled:opacity-40 disabled:hover:bg-brand",
+    "h-9 w-full @5xl:h-10 bg-brand px-4 text-white hover:bg-brand-hover active:bg-brand-active disabled:not-aria-busy:opacity-40 aria-busy:cursor-wait disabled:hover:bg-brand",
   secondary:
-    "h-9 w-full @5xl:h-10 border border-line bg-transparent px-4 text-fg hover:bg-secondary active:bg-secondary-hover disabled:opacity-40 disabled:hover:bg-transparent",
+    "h-9 w-full @5xl:h-10 border border-line bg-transparent px-4 text-fg hover:bg-secondary active:bg-secondary-hover disabled:not-aria-busy:opacity-40 aria-busy:cursor-wait disabled:hover:bg-transparent",
   link: "h-auto px-0 text-brand-text underline-offset-4 hover:underline disabled:text-fg-muted disabled:opacity-50 disabled:no-underline",
 };
 
