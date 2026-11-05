@@ -3,6 +3,7 @@ import { DynamicTheme } from "@/components/dynamic-theme";
 import { RegisterForm } from "@/components/register-form";
 import { SignInWithIdp } from "@/components/sign-in-with-idp";
 import { Translated } from "@/components/translated";
+import { redirectToEmailCodeLogin } from "@/lib/natively/redirect";
 import { getServiceConfig } from "@/lib/service-url";
 import {
   getActiveIdentityProviders,
@@ -24,6 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Page(props: { searchParams: Promise<Record<string | number | symbol, string | undefined>> }) {
   const searchParams = await props.searchParams;
+  redirectToEmailCodeLogin(searchParams); // NativelyAI fork: email-code login
 
   let { firstname, lastname, email, organization, requestId } = searchParams;
 

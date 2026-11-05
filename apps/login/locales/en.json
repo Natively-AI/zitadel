@@ -473,5 +473,113 @@
     "tryagain": "Try Again",
     "couldNotContinueSession": "Could not continue with session - missing user information",
     "couldNotClearSession": "Could not end the session. Please try again."
+  },
+  "natively": {
+    "pageTitle": "Log in · NativelyAI",
+    "panel": {
+      "headline": "Your next app is one conversation away.",
+      "body": "Tell Natively what you have in mind. Go from idea to working app with a single prompt.",
+      "steps": {
+        "describe": "Describe what you want to build",
+        "preview": "Watch it come together in live preview",
+        "publish": "Publish it to a live URL in one click"
+      },
+      "footer": "Let's build and ship something real."
+    },
+    "start": {
+      "title": "Log in or sign up",
+      "subtitle": "to continue to Builder",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@company.com",
+      "continue": "Continue",
+      "or": "or",
+      "continueWith": "Continue with {provider}"
+    },
+    "code": {
+      "title": "Check your email",
+      "subtitle": "We sent a code to <strong>{email}</strong>. Enter it below.",
+      "label": "Code from the email",
+      "verify": "Verify",
+      "verifying": "Verifying…",
+      "resend": "Resend code",
+      "resending": "Sending…",
+      "resendIn": "Resend code in {time}",
+      "resent": "Your verification code has been sent to {email}.",
+      "differentEmail": "Use a different email",
+      "startAgain": "Start again",
+      "expired": {
+        "title": "This login has expired",
+        "body": "Codes only work in the browser you started in, and only for a few minutes. Start again and we'll email you a new one.",
+        "startAgain": "Start again"
+      },
+      "spamHint": "Can't find it? Check your spam folder. The code works for a few minutes."
+    },
+    "newUser": {
+      "title": "Welcome to Builder!",
+      "subtitle": "There's no account associated with <strong>{email}</strong> yet. Let's get you set up. What should we call you?",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "continue": "Continue"
+    },
+    "signingIn": {
+      "title": "Signing you in…",
+      "body": "You're being redirected to Builder."
+    },
+    "loggedOut": {
+      "title": "You're logged out",
+      "body": "Thanks for building with us. Log back in whenever you're ready to pick up where you left off.",
+      "logInAgain": "Log back in"
+    },
+    "errors": {
+      "retry": "Try again",
+      "invalidEmail": {
+        "title": "Check your email address",
+        "body": "Enter a valid email address, like you@company.com."
+      },
+      "nameRequired": {
+        "title": "Add your name",
+        "body": "Enter both your first and last name."
+      },
+      "cannotReceiveCodes": {
+        "title": "We can't send a code to this email",
+        "body": "This account can't receive login codes. Try another way to log in, or <support>contact support</support>."
+      },
+      "registrationDisabled": {
+        "title": "Sign-ups are closed",
+        "body": "There's no account for this email, and new sign-ups aren't open right now."
+      },
+      "accountUnavailable": {
+        "title": "This account can't log in",
+        "body": "<support>Contact support</support> and we'll sort it out."
+      },
+      "wrongCode": {
+        "title": "Incorrect code",
+        "body": "The code you entered is incorrect. Please check your email and try again."
+      },
+      "expiredCode": {
+        "title": "This code has expired",
+        "body": "Your verification code has expired. Request a new one."
+      },
+      "tooManyAttempts": {
+        "title": "Too many attempts",
+        "body": "For your security this account is locked. <support>Contact support</support> to unlock it."
+      },
+      "sessionExpired": {
+        "title": "This login has expired",
+        "body": "<restart>Start again</restart> in this browser and we'll send a new code."
+      },
+      "socialFailed": {
+        "title": "We couldn't log you in",
+        "body": "The login was cancelled or didn't go through. Try again, or continue with your email instead."
+      },
+      "socialFailedWith": {
+        "title": "We couldn't log you in with {provider}",
+        "body": "Your {provider} login was cancelled or didn't go through. Try again, or continue with your email instead."
+      },
+      "generic": {
+        "title": "Something went wrong",
+        "body": "Please <retry>try again</retry>. If it keeps happening, <support>contact support</support>."
+      }
+    }
   }
 }

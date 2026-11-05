@@ -1,11 +1,13 @@
 import { DynamicTheme } from "@/components/dynamic-theme";
 import { Translated } from "@/components/translated";
+import { redirectToEmailCodeLogin } from "@/lib/natively/redirect";
 import { getServiceConfig } from "@/lib/service-url";
 import { getBrandingSettings } from "@/lib/zitadel";
 import { headers } from "next/headers";
 
 export default async function Page(props: { searchParams: Promise<any> }) {
   const searchParams = await props.searchParams;
+  redirectToEmailCodeLogin(searchParams, { path: "/email/logged-out" }); // NativelyAI fork
 
   const _headers = await headers();
   const { serviceConfig } = getServiceConfig(_headers);

@@ -5,6 +5,7 @@ import { Session } from "@zitadel/proto/zitadel/session/v2/session_pb";
 import { GetSessionResponse } from "@zitadel/proto/zitadel/session/v2/session_service_pb";
 import { AuthenticationMethodType } from "@zitadel/proto/zitadel/user/v2/user_service_pb";
 import { getMostRecentCookieWithLoginname, getSessionCookieById } from "./cookies";
+import { isEmailCodeLoginEnabled } from "./natively/config";
 import { shouldEnforceMFA } from "./verify-helper";
 import { getLoginSettings, getSession, getUserByID, listAuthenticationMethodTypes, ServiceConfig } from "./zitadel";
 
@@ -185,7 +186,10 @@ export async function isSessionValid({
     return false;
   }
 
-  const validChecks = !!(validPassword || validPasskey || validIDP);
+  // NativelyAI fork: with the email-code login the emailed code is the whole login.
+  const validEmailCode = isEmailCodeLoginEnabled() && !!session.factors.otpEmail?.verifiedAt;
+
+  const validChecks = !!(validPassword || validPasskey || validIDP || validEmailCode);
 
   if (!validChecks) {
     return false;

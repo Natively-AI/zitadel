@@ -12,6 +12,7 @@ import { idpTypeToIdentityProviderType, idpTypeToSlug } from "../idp";
 import { PasskeysType } from "@zitadel/proto/zitadel/settings/v2/login_settings_pb";
 import { IDPLink } from "@zitadel/proto/zitadel/user/v2/idp_pb";
 import { UserState } from "@zitadel/proto/zitadel/user/v2/user_pb";
+import { isEmailCodeLoginEnabled } from "../natively/config";
 import { getServiceConfig } from "../service-url";
 import {
   getActiveIdentityProviders,
@@ -41,6 +42,18 @@ export type SendLoginnameCommand = {
 const ORG_SUFFIX_REGEX = /(?<=@)(.+)/;
 
 export async function sendLoginname(command: SendLoginnameCommand) {
+  // NativelyAI fork: everything that would continue to /password etc. (login_hint, expired
+  // sessions) goes to the email-code screen instead, prefilled. No code is sent until the
+  // user presses Continue there, so a crafted link can't trigger emails.
+  if (isEmailCodeLoginEnabled()) {
+    const params = new URLSearchParams();
+    const email = command.suffix ? `${command.loginName}@${command.suffix}` : command.loginName;
+    if (email) params.set("email", email);
+    if (command.requestId) params.set("requestId", command.requestId);
+    if (command.organization) params.set("organization", command.organization);
+    return { redirect: "/email?" + params };
+  }
+
   const _headers = await headers();
   const { serviceConfig } = getServiceConfig(_headers);
 

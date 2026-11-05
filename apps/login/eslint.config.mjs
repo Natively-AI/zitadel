@@ -54,11 +54,12 @@ export default [
       parserOptions: {
         ecmaFeatures: { jsx: true },
         project: "./tsconfig.json",
+        tsconfigRootDir: import.meta.dirname,
       },
     },
     settings: {
       "import/resolver": {
-        typescript: true,
+        typescript: { project: `${import.meta.dirname}/tsconfig.json` },
       },
     },
     rules: {

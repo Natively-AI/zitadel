@@ -3,6 +3,7 @@ import { ChooseAuthenticatorToLogin } from "@/components/choose-authenticator-to
 import { DynamicTheme } from "@/components/dynamic-theme";
 import { Translated } from "@/components/translated";
 import { UserAvatar } from "@/components/user-avatar";
+import { redirectToEmailCodeLogin } from "@/lib/natively/redirect";
 import { getServiceConfig } from "@/lib/service-url";
 import { getBrandingSettings, getLoginSettings, getUserByID, listAuthenticationMethodTypes } from "@/lib/zitadel";
 import { HumanUser, User } from "@zitadel/proto/zitadel/user/v2/user_pb";
@@ -14,6 +15,8 @@ export default async function Page(props: {
   params: Promise<{ provider: string }>;
 }) {
   const searchParams = await props.searchParams;
+  const { provider } = await props.params;
+  redirectToEmailCodeLogin(searchParams, { extra: { error: "social", provider } }); // NativelyAI fork
 
   const { organization, userId } = searchParams;
 

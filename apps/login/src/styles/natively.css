@@ -1,0 +1,158 @@
+/*
+ * NativelyAI fork: styles for the email-code login screens (src/app/(natively)).
+ *
+ * Colours, radii and fonts are the light and dark themes of @natively-ai/design-system
+ * (src/styles/tokens.css), copied as values: that package is private, and this repo and its
+ * Docker build are public. Keep them in sync when the design system changes.
+ *
+ * The theme follows the device (prefers-color-scheme), like the Builder. `data-theme="light"`
+ * or `data-theme="dark"` on any element forces one theme for everything inside it (the theme
+ * switch in the top-right corner sets it on <html>; see components/natively/theme-toggle.tsx).
+ *
+ * This file is separate from globals.scss, so the stock Zitadel screens are unaffected.
+ */
+@import "tailwindcss";
+
+/* Light theme (default) */
+:root,
+[data-theme="light"] {
+  --n-page: oklch(1 0 0); /* surface-background */
+  --n-raised: oklch(0.985 0 0); /* surface-raised */
+  --n-line: oklch(0 0 0 / 10%); /* border-subtle */
+  --n-line-input: oklch(0.929 0.013 255.508); /* border-input */
+  --n-input: transparent; /* surface-input */
+  --n-fg: oklch(0.129 0.042 264.695); /* text-foreground */
+  --n-fg-muted: oklch(0.5463 0 0); /* text-secondary */
+  --n-fg-subtle: oklch(0.5541 0 0); /* text-placeholder */
+  --n-brand-text: oklch(0.4787 0.2298 268.25); /* primary-text (light) */
+  --n-secondary: oklch(0.968 0.007 247.896); /* surface-secondary */
+  --n-secondary-hover: oklch(0.918 0.007 247.896);
+  --n-secondary-active: oklch(0.868 0.007 247.896);
+  --n-danger: oklch(0.4665 0.1868 26.8007); /* danger */
+  --n-warning: oklch(0.35 0.1296 82.87); /* warning-foreground (light) */
+  --n-success: oklch(0.48 0.13 150.81); /* status-success-text (light) */
+  --n-ring: oklch(0.704 0.04 256.788); /* focus-ring (light) */
+  --n-logo-tile: oklch(0 0 0);
+  --n-popover: oklch(1 0 0); /* surface-popover */
+  --n-text-muted: oklch(0.35 0.025 257.417); /* text-muted */
+  --n-status-danger: oklch(0.30907 0.19868 23.889); /* status-danger (light) */
+  --n-shadow-md: 0 2px 4px 0 oklch(0 0 0 / 8%), 0 4px 8px 0 oklch(0 0 0 / 10%); /* elevation-md */
+  --n-logo-mark: oklch(1 0 0);
+  color-scheme: light;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --n-page: oklch(0.1638 0 0);
+    --n-raised: oklch(0.1867 0 0);
+    --n-line: oklch(1 0 0 / 10%);
+    --n-line-input: oklch(1 0 0 / 15%);
+    --n-input: oklch(1 0 0 / 4.5%);
+    --n-fg: oklch(0.9015 0.0154 241.79);
+    --n-fg-muted: oklch(0.66 0 0);
+    --n-fg-subtle: oklch(0.6 0 0);
+    --n-brand-text: oklch(0.6587 0.1379 268.25);
+    --n-secondary: oklch(0.2134 0 0);
+    --n-secondary-hover: oklch(0.2634 0 0);
+    --n-secondary-active: oklch(0.3134 0 0);
+    --n-danger: oklch(0.69093 0.19868 23.889);
+    --n-warning: oklch(0.73565 0.12955 82.87);
+    --n-success: oklch(0.7329 0.1935 150.81);
+    --n-ring: oklch(0.551 0.027 264.364);
+    --n-logo-tile: oklch(1 0 0);
+    --n-popover: oklch(0.1872 0.002 286.2); /* surface-popover */
+    --n-text-muted: oklch(0.66 0 0); /* text-muted */
+    --n-status-danger: oklch(0.69093 0.19868 23.889); /* status-danger (dark) */
+    --n-shadow-md: 0 2px 4px 0 oklch(0 0 0 / 28%), 0 4px 8px 0 oklch(0 0 0 / 24%); /* elevation-md */
+    --n-logo-mark: oklch(0 0 0);
+    color-scheme: dark;
+  }
+}
+
+[data-theme="dark"] {
+  --n-page: oklch(0.1638 0 0); /* surface-background */
+  --n-raised: oklch(0.1867 0 0); /* surface-raised */
+  --n-line: oklch(1 0 0 / 10%); /* border-subtle */
+  --n-line-input: oklch(1 0 0 / 15%); /* border-input */
+  --n-input: oklch(1 0 0 / 4.5%); /* surface-input */
+  --n-fg: oklch(0.9015 0.0154 241.79); /* text-foreground */
+  --n-fg-muted: oklch(0.66 0 0); /* text-muted */
+  --n-fg-subtle: oklch(0.6 0 0); /* text-placeholder */
+  --n-brand-text: oklch(0.6587 0.1379 268.25); /* primary-text (dark) */
+  --n-secondary: oklch(0.2134 0 0); /* surface-secondary */
+  --n-secondary-hover: oklch(0.2634 0 0);
+  --n-secondary-active: oklch(0.3134 0 0);
+  --n-danger: oklch(0.69093 0.19868 23.889); /* status-danger (dark) */
+  --n-warning: oklch(0.73565 0.12955 82.87); /* warning-foreground (dark) */
+  --n-success: oklch(0.7329 0.1935 150.81); /* status-success */
+  --n-ring: oklch(0.551 0.027 264.364); /* focus-ring (dark) */
+  --n-logo-tile: oklch(1 0 0);
+  --n-popover: oklch(0.1872 0.002 286.2); /* surface-popover */
+  --n-text-muted: oklch(0.66 0 0); /* text-muted */
+  --n-status-danger: oklch(0.69093 0.19868 23.889); /* status-danger (dark) */
+  --n-shadow-md: 0 2px 4px 0 oklch(0 0 0 / 28%), 0 4px 8px 0 oklch(0 0 0 / 24%); /* elevation-md */
+  --n-logo-mark: oklch(0 0 0);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-page: var(--n-page);
+  --color-raised: var(--n-raised);
+  --color-line: var(--n-line);
+  --color-line-input: var(--n-line-input);
+  --color-input: var(--n-input);
+  --color-fg: var(--n-fg);
+  --color-fg-muted: var(--n-fg-muted);
+  --color-fg-subtle: var(--n-fg-subtle);
+  --color-brand-text: var(--n-brand-text);
+  --color-secondary: var(--n-secondary);
+  --color-secondary-hover: var(--n-secondary-hover);
+  --color-secondary-active: var(--n-secondary-active);
+  --color-danger: var(--n-danger);
+  --color-warning: var(--n-warning);
+  --color-success: var(--n-success);
+  --color-ring: var(--n-ring);
+  --color-logo-tile: var(--n-logo-tile);
+  --color-logo-mark: var(--n-logo-mark);
+  --color-popover: var(--n-popover);
+  --color-text-muted: var(--n-text-muted);
+  --color-status-danger: var(--n-status-danger);
+  --shadow-elevation-md: var(--n-shadow-md);
+}
+
+@theme {
+  /* the brand colour is the same in both themes */
+  --color-brand: oklch(0.5787 0.2298 268.25); /* brand-primary */
+  --color-status-neutral: oklch(0.5787 0.2298 268.25); /* status-neutral */
+  --color-status-warning: oklch(0.7819 0.1585 72.33); /* status-warning */
+  --color-brand-hover: oklch(0.5287 0.2298 268.25);
+  --color-brand-active: oklch(0.4787 0.2298 268.25);
+
+  --radius-ds-md: 0.5rem;
+  --radius-ds-lg: 0.625rem;
+  --radius-ds-xl: 0.875rem;
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "SF Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--n-page);
+    color: var(--n-fg);
+  }
+}
+
+/* Toast motion, as the design system's enter-rise / exit-fade */
+@keyframes n-rise-in {
+  from {
+    opacity: 0;
+    translate: 0 1rem;
+  }
+}
